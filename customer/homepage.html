@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الرئيسية</title>
+    <script src="../shared/header.js" defer></script>
+    <link rel="stylesheet" href="../shared/header.css" />
+    <link rel="stylesheet" href="../css/homepage.css" />
+  </head>
+
+  <body>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="../images/bean.png" alt="Image 1" />
+        </div>
+        <div class="swiper-slide">
+          <img src="../images/coffee-hill.png" alt="Image 2" />
+        </div>
+        <div class="swiper-slide">
+          <img src="../images/lqimat.png" alt="Image 3" />
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <h2 class="poem">
+      يا كليـــــب شب النار يا كليـــــب شبّه عليك شبّه<br />
+      والحطب لك يجابي وعلي أنا يا كليـــــب هيــــــله وحبه
+    </h2>
+
+    <div class="cards-container">
+      <div class="category-title">بن قهوة</div>
+      <div class="cards-wrapper">
+        <div class="card" id="1">
+          <img class="product-image" src="../images/bean.png" alt="Product" />
+          <h3>بن قهوة (80 جرام)</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>80</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+
+        <div class="card" id="2">
+          <img class="product-image" src="../images/bean.png" alt="Product" />
+          <h3>بن قهوة (100 جرام)</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>120</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+
+        <div class="card" id="3">
+          <img class="product-image" src="../images/bean.png" alt="Product" />
+          <h3>بن قهوة (25 جرام)</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>50</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards-container">
+      <div class="category-title">قهوة</div>
+      <div class="cards-wrapper">
+        <div class="card" id="4">
+          <img
+            class="product-image"
+            src="../images/coffee-hill.png"
+            alt="Product" />
+          <h3>قهوة بالهيل</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>30</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+
+        <div class="card" id="5">
+          <img
+            class="product-image"
+            src="../images/coffee-za3fran.png"
+            alt="Product" />
+          <h3>قهوة بالزعفران</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>30</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+
+        <div class="card" id="6">
+          <img
+            class="product-image"
+            src="../images/coffee-quronful.png"
+            alt="Product" />
+          <h3>قهوة بالقرنفل</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>30</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cards-container">
+      <div class="category-title">حلويات</div>
+      <div class="cards-wrapper">
+        <div class="card" id="7">
+          <img class="product-image" src="../images/m7la.png" alt="Product" />
+          <h3>محلى</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>80</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+
+        <div class="card" id="8">
+          <img
+            class="product-image"
+            src="../images/maqshosh.png"
+            alt="Product" />
+          <h3>مقشوش</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>120</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+
+        <div class="card" id="9">
+          <img class="product-image" src="../images/lqimat.png" alt="Product" />
+          <h3>لقيمات</h3>
+          <img
+            class="rating"
+            src="../images/star-ratings/4star.png"
+            alt="4 stars rating" />
+          <div class="price-container">
+            <h4>50</h4>
+            <img class="riyal" src="../images/riyal.png" alt="Riyal Symbol" />
+            <button onclick="addToCart(this)">إضافة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>تسجيل الدخول</h2>
+        <form method="post" action="../php/login.php">
+          <label for="email">البريد الإلكتروني</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="example@gmail.com"
+            name="email"
+            required />
+
+          <label for="password">كلمة السر</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit" onclick="login()">دخول</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('signupModal')">&times;</span>
+        <h2>إنشاء حساب</h2>
+        <form method="post" action="../php/sign-up.php">
+          <label for="name">الاسم</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="عبدالله"
+            name="name"
+            required />
+
+          <label for="signup-email">البريد الإلكتروني</label>
+          <input
+            type="email"
+            id="signup-email"
+            placeholder="example@gmail.com"
+            name="email"
+            required />
+
+          <label for="signup-password">كلمة السر</label>
+          <input
+            type="password"
+            id="signup-password"
+            name="password"
+            required />
+
+          <button type="submit" onclick="signup()">تسجيل</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".swiper-container", {
+        loop: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+          type: "bullets",
+        },
+      });
+
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "flex";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+
+      // Close the modal when clicking outside of it
+      window.onclick = function (event) {
+        let loginModal = document.getElementById("loginModal");
+        let signupModal = document.getElementById("signupModal");
+        if (event.target == loginModal) {
+          loginModal.style.display = "none";
+        }
+        if (event.target == signupModal) {
+          signupModal.style.display = "none";
+        }
+      };
+
+      function login() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if (password.length < 8 || password.length > 25) {
+          alert("كلمة السر يجب أن تكون بين 8 و 25 حرف.");
+          return;
+        }
+      }
+
+      function signup() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+
+        if (password.length < 8 || password.length > 25) {
+          alert("كلمة السر يجب أن تكون بين 8 و 25 حرف.");
+          return;
+        }
+      }
+
+      function addToCart(button) {
+        const card = button.closest(".card"); // Get the parent .card
+        const product_id = card.id; // Get the card's id
+
+        let product_name = "";
+        let price = "";
+        let product_image = "";
+        const quantity = 1;
+
+        if (product_id === "1") {
+          product_name = "Coffee Bean (80 grams)";
+          price = "80";
+          product_image = "../images/bean.png";
+        } else if (product_id === "2") {
+          product_name = "Coffee Bean (100 grams)";
+          price = "120";
+          product_image = "../images/bean.png";
+        } else if (product_id === "3") {
+          product_name = "Coffee Bean (25 grams)";
+          price = "50";
+          product_image = "../images/bean.png";
+        } else if (product_id === "4") {
+          product_name = "Coffee with Hill";
+          price = "30";
+          product_image = "../images/coffee-hill.png";
+        } else if (product_id === "5") {
+          product_name = "Coffee with Zafaran";
+          price = "30";
+          product_image = "../images/coffee-za3fran.png";
+        } else if (product_id === "6") {
+          product_name = "Coffee with Quronful";
+          price = "30";
+          product_image = "../images/coffee-quronful.png";
+        } else if (product_id === "7") {
+          product_name = "Muhala";
+          price = "80";
+          product_image = "../images/m7la.png";
+        } else if (product_id === "8") {
+          product_name = "Maqshoosh";
+          price = "120";
+          product_image = "../images/maqshosh.png";
+        } else if (product_id === "9") {
+          product_name = "Lqimat";
+          price = "50";
+          product_image = "../images/lqimat.png";
+        } else {
+          alert("المنتج غير معروف");
+          return;
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const email = urlParams.get("email");
+
+        // Prepare Data for AJAX
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("product_id", product_id);
+        formData.append("product_name", product_name);
+        formData.append("price", price);
+        formData.append("quantity", quantity);
+        formData.append("product_image", product_image);
+
+        // AJAX
+        fetch("../php/add-to-cart.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            alert(data);
+          })
+          .catch((error) => {
+            console.error("Error", error);
+            document.getElementById("response").innerHTML =
+              "<p> حدث خطأ أثناء الإرسال</p>";
+          });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>الطلبات السابقة</title>
+    <script src="../shared/header.js" defer></script>
+    <link rel="stylesheet" href="../shared/header.css" />
+    <link rel="stylesheet" href="../css/prevOrders.css" />
+  </head>
+  <body>
+    <h1>الطلبات</h1>
+
+    <div class="orders" id="orders">
+      <div class="order-card" id="order-card">
+        <h2 class="order-id"></h2>
+        <image class="product-image"></image>
+        <h3 class="total-price"></h3>
+      </div>
+    </div>
+
+    <script>
+      urlParams = new URLSearchParams(window.location.search);
+      email = urlParams.get("email");
+
+      const formData = new FormData();
+      formData.append("email", email);
+
+      // AJAX to get the recent cart and its items then append it to HTML
+      fetch("../php/prev-orders.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const ordersContainer = document.getElementById("orders");
+          ordersContainer.innerHTML = ""; // Clear dummy content
+
+          if (!Array.isArray(data) || data.length === 0) {
+            ordersContainer.innerHTML = "<p>لا يوجد طلبات</p>";
+            return;
+          }
+
+          const groupedOrders = {};
+          data.forEach((item) => {
+            const id = item.order_id;
+            if (!groupedOrders[id]) {
+              groupedOrders[id] = [];
+            }
+            groupedOrders[id].push(item);
+          });
+
+          for (const orderId in groupedOrders) {
+            const orderItems = groupedOrders[orderId];
+            const orderCard = document.createElement("div");
+            orderCard.classList.add("order-card");
+
+            // Add order ID header
+            const orderHeader = document.createElement("h2");
+            orderHeader.textContent = `طلب رقم: ${orderId}`;
+            orderCard.appendChild(orderHeader);
+
+            let total = 0;
+
+            orderItems.forEach((product) => {
+              // Product image
+              const productImage = document.createElement("img");
+              productImage.src =
+                product.product_image ?? "../images/placeholder-image.jpg";
+              productImage.alt = product.product_name;
+              productImage.classList.add("product-image");
+              orderCard.appendChild(productImage);
+
+              // Product name
+              const productName = document.createElement("p");
+              productName.textContent = `المنتج: ${product.product_name}`;
+              orderCard.appendChild(productName);
+
+              // Quantity
+              const quantity = document.createElement("p");
+              quantity.textContent = `الكمية: ${product.quantity}`;
+              orderCard.appendChild(quantity);
+
+              // Unit price
+              const price = document.createElement("p");
+              price.textContent = `السعر للوحدة: ${product.price} ريال`;
+              orderCard.appendChild(price);
+
+              total += product.price * product.quantity;
+            });
+
+            const totalPrice = document.createElement("h3");
+            totalPrice.classList.add("total-price");
+            totalPrice.textContent = `الإجمالي: ${total} ريال`;
+            orderCard.appendChild(totalPrice);
+
+            ordersContainer.appendChild(orderCard);
+          }
+        })
+        .catch((error) => {
+          console.error("Error", error);
+          alert("خطأ أثناء الإرسال");
+        });
+    </script>
+  </body>
+</html>

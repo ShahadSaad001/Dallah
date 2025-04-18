@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>سلة المشتريات</title>
+    <script src="../shared/header.js" defer></script>
+    <link rel="stylesheet" href="../css/Cart.css" />
+    <link rel="stylesheet" href="../shared/header.css" />
+  </head>
+  <body>
+    <h2>سلة المشتريات</h2>
+    <div class="cards">
+      <div class="card"></div>
+    </div>
+    <div class="buttons">
+      <button class="pay" onclick="pay()">الدفع</button>
+      <button class="cancel" onclick="cancel()">إلغاء</button>
+    </div>
+
+    <script>
+      urlParams = new URLSearchParams(window.location.search);
+      email = urlParams.get("email");
+      let cart_id = "";
+
+      const formData = new FormData();
+      formData.append("email", email);
+
+      // AJAX to get the recent cart and its items then append it to HTML
+      fetch("../php/cart.php", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const cardsContainer = document.querySelector(".cards");
+          cardsContainer.innerHTML = "";
+
+          if (data.error) {
+            alert(data.error);
+            return;
+          }
+
+          if (!Array.isArray(data) || data.length === 0) {
+            cardsContainer.innerHTML =
+              "<p style='text-align: center;'>لا يوجد سلة حالياً</p>";
+            document.querySelector(".pay").style.display = "none";
+            return;
+          }
+
+          cart_id = data[0].cart_id;
+
+          data.forEach((item) => {
+            const card = document.createElement("div");
+            card.classList.add("card");
+
+            // Product name
+            const title = document.createElement("h3");
+            title.textContent = item.product_name;
+            card.appendChild(title);
+
+            // Image
+            const image = document.createElement("img");
+            image.src = item.product_image;
+            image.alt = item.product_name;
+            image.classList.add("product-image");
+            card.appendChild(image);
+
+            // Quantity and Price
+            const quantity = document.createElement("p");
+            quantity.textContent = `الكمية: ${item.quantity}`;
+            card.appendChild(quantity);
+
+            const price = document.createElement("p");
+            price.textContent = `السعر للوحدة: ${item.price} ريال`;
+            card.appendChild(price);
+
+            // Total price
+            const total = document.createElement("h4");
+            total.textContent = `المجموع: ${item.quantity * item.price} ريال`;
+            card.appendChild(total);
+
+            // Append this card to container
+            cardsContainer.appendChild(card);
+          });
+        })
+        .catch((error) => {
+          console.error("Error", error);
+          alert("حدث خطأ أثناء الإرسال");
+        });
+
+      // Now append the products info with HTML file
+
+      function pay() {
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("cart_id", cart_id);
+
+        // AJAX to send recent cart and user data to update its condition to 'paid'
+        fetch("../php/pay-cart.php", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.text())
+          .then((data) => {
+            window.location.href = `homepage.html?email=${email}&role=customer`;
+          })
+          .catch((error) => {
+            console.error("Error", error);
+            document.getElementById("response").innerHTML =
+              "<p> حدث خطأ أثناء الإرسال</p>";
+          });
+      }
+
+      function cancel() {
+        window.location.href = `homepage.html?email=${email}&role=customer`;
+      }
+    </script>
+  </body>
+</html>

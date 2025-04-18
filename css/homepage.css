@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;1,700&display=swap");
+
+body {
+  background-color: #eeeeee;
+}
+
+h2 {
+  display: block;
+  padding: 50px;
+}
+
+.swiper-container {
+  position: relative;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.swiper-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.swiper-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+}
+
+@media screen and (min-width: 1000px) {
+  .swiper-slide img {
+    width: 20%;
+    height: auto;
+  }
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgb(129, 129, 129);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #b69c6f;
+}
+
+.poem {
+  font-size: 52px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 150px;
+  font-family: "Amiri", serif;
+  font-style: italic;
+  color: #333;
+  line-height: 1.8;
+}
+
+.poem::before,
+.poem::after {
+  content: '"';
+  font-size: 75px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eee5e5;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 50px auto;
+  width: 90%;
+}
+
+.category-title {
+  position: relative;
+  top: -20px;
+  right: -20px;
+  text-align: right;
+  background-color: #b69c6f;
+  color: white;
+  font-size: 32px;
+  padding: 7px 35px;
+  border-radius: 10px;
+  width: fit-content;
+  align-self: flex-start;
+  width: fit-content;
+}
+
+.cards-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 300px;
+  height: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-size: 20;
+  margin-bottom: 10px;
+}
+
+.card .product-image {
+  width: 170px;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.card .rating {
+  width: 150px;
+  height: auto;
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+.price-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 18px;
+}
+
+.price-container h4 {
+  margin: 0;
+  color: #000000;
+}
+
+.price-container img.riyal {
+  width: 20px;
+  height: auto;
+}
+.card button {
+  width: 129px;
+  height: 37px;
+  border-radius: 6px;
+  background-color: #19647e;
+  color: #fff;
+  align-self: flex-end;
+  margin: 20px;
+  font-size: 20px;
+}
+
+/* Modal CSS */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  text-align: right;
+  font-size: 16px;
+}
+
+.modal-content button {
+  background: #19647e;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 18px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.modal-content button:hover {
+  background: #154e62;
+}
